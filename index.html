@@ -3,24 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>嗨!是我，Chris Su的個人部落格</title>
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
+  <!-- 頂部導航列 -->
   <header>
-    <h1>Welcome to My Portfolio</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio.html">Portfolio</a>
+      <div class="nav-container">
+        <a href="#" class="logo">ChrisSu's blog</a>
+        <div class="nav-links">
+          <a href="#portfolio">Portfolio</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <!-- Dark Mode 切換按鈕 -->
+          <button id="darkModeToggle" class="dark-mode-toggle">☀️</button>
+        </div>
+      </div>
     </nav>
   </header>
-  <main class="container">
-    <h2>Recent Projects</h2>
-    <p>This is where you showcase your latest work.</p>
-  </main>
+
+  <!-- 英雄區域 -->
+  <section class="hero">
+    <h1>Welcome to My Portfolio</h1>
+    <p>Discover my work and let's create something amazing together.</p>
+    <a href="#portfolio" class="cta-button">View My Work</a>
+  </section>
+
+  <!-- Portfolio 區域 -->
+  <section id="portfolio" class="portfolio">
+    <h2>Portfolio</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>Project 1</h3>
+        <p>Description of Project 1</p>
+      </div>
+      <div class="card">
+        <h3>Project 2</h3>
+        <p>Description of Project 2</p>
+      </div>
+      <div class="card">
+        <h3>Project 3</h3>
+        <p>Description of Project 3</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About 區域 -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I am a designer, developer, and creator. Let's build something amazing together.</p>
+  </section>
+
+  <!-- 頁尾 -->
   <footer>
-    <p>&copy; 2024 My Portfolio</p>
+    <p>© 2024 My Portfolio. All rights reserved.</p>
   </footer>
+
+  <!-- Dark Mode 切換腳本 -->
+  <script>
+    const toggleButton = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    // 檢查本地存儲的主題設定
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      body.classList.add('dark-mode');
+      toggleButton.textContent = '🌙';
+    }
+
+    // 按鈕點擊事件
+    toggleButton.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const isDarkMode = body.classList.contains('dark-mode');
+      toggleButton.textContent = isDarkMode ? '🌙' : '☀️';
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    });
+  </script>
 </body>
 </html>
